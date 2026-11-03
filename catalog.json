@@ -1,0 +1,703 @@
+{
+  "modules": [
+    {
+      "name": "llm-query-plan",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Typed query plan: the model plans, code compiles and runs",
+      "status": "existing",
+      "path": "llm-query-plan",
+      "note": "Used in the product (the \"Ask your data\" screen)"
+    },
+    {
+      "name": "narrative-verifier",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Narrative verifier: model-written text can only show numbers by reference",
+      "status": "existing",
+      "path": "narrative-verifier",
+      "note": "Used in the product (report summaries and the answers to \"Ask your survey\")"
+    },
+    {
+      "name": "approval-gate",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Approval gate: one place where risky writes run",
+      "status": "existing",
+      "path": "approval-gate",
+      "note": "Used in the product (invitations, reminders, publishing, 360 launches, case follow-ups, conversation starts)"
+    },
+    {
+      "name": "llm-provider-adapter",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "LLM provider adapter, task layer, guard and budget",
+      "status": "existing",
+      "path": "llm-provider-adapter",
+      "note": "Used in the product with the OpenAI-compatible adapter on OpenRouter"
+    },
+    {
+      "name": "sentiment-and-themes",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Sentiment and theme tagging for open-text answers",
+      "status": "existing",
+      "path": "sentiment-and-themes",
+      "note": "The word-list sentiment and the theme taxonomy are used in the product"
+    },
+    {
+      "name": "retrieval-embeddings",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Retrieval over answers (\"Ask your survey\")",
+      "status": "existing",
+      "path": "retrieval-embeddings",
+      "note": "TESTS ONLY in practice"
+    },
+    {
+      "name": "stats-validated",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Statistics checked against published results",
+      "status": "existing",
+      "path": "stats-validated",
+      "note": "TESTS ONLY"
+    },
+    {
+      "name": "small-group-suppression",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Small-group suppression and anonymity rules",
+      "status": "existing",
+      "path": "small-group-suppression",
+      "note": "Used in the product (reports, engagement results, 360 reviews, Ask your data)"
+    },
+    {
+      "name": "response-quality-flags",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Careless-response and data-quality flags",
+      "status": "existing",
+      "path": "response-quality-flags",
+      "note": "Used in the product, run on demand from the quality screen (not on every submission)"
+    },
+    {
+      "name": "tenant-isolation-rls",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Tenant isolation with Postgres row-level security",
+      "status": "existing",
+      "path": "tenant-isolation-rls",
+      "note": "Used in the product (every table that holds organisation data)"
+    },
+    {
+      "name": "auth-supabase-stepup",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Auth: Supabase SSR login, FastAPI JWT verification, step-up MFA",
+      "status": "existing",
+      "path": "auth-supabase-stepup",
+      "note": "Used in the product"
+    },
+    {
+      "name": "send-time-checks",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Consent, quiet hours and quota checked at send time",
+      "status": "existing",
+      "path": "send-time-checks",
+      "note": "Used in the product for email"
+    },
+    {
+      "name": "audit-and-call-log",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Audit log and model-call log",
+      "status": "existing",
+      "path": "audit-and-call-log",
+      "note": "Used in the product"
+    },
+    {
+      "name": "i18n-rtl",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Interface translation and right-to-left layout (six languages)",
+      "status": "existing",
+      "path": "i18n-rtl",
+      "note": "Used in the product"
+    },
+    {
+      "name": "nav-drawer",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "NavDrawer: slide-over menu for narrow screens",
+      "status": "existing",
+      "path": "nav-drawer",
+      "note": "Used in the product (the signed-in app below 1100 px)"
+    },
+    {
+      "name": "html-ui-to-code",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "HTML mockup to Next.js code maker",
+      "status": "existing",
+      "path": "html-ui-to-code",
+      "note": "Used in the product as a build step: 38 pages are generated from mockups, 33 of them wired to live data"
+    },
+    {
+      "name": "rate-limiter-queue",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Rate limiter and Postgres job queue",
+      "status": "existing",
+      "path": "rate-limiter-queue",
+      "note": "Used in the product"
+    },
+    {
+      "name": "ssrf-and-input-hygiene",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "SSRF guard, input sanitising and personal-data redaction",
+      "status": "existing",
+      "path": "ssrf-and-input-hygiene",
+      "note": "Used in the product"
+    },
+    {
+      "name": "repo-gates",
+      "set": 1,
+      "category": "existing",
+      "part": "public",
+      "description": "Phase gate, Makefile and import contracts",
+      "status": "existing",
+      "path": "repo-gates",
+      "note": "Development process (not product code)"
+    },
+    {
+      "name": "agent-file-tools",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Budgeted glob / grep / read tools for a model, with path sandboxing and a plug-in point for more tools",
+      "files": 6,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [
+          "pydantic>=2.10"
+        ],
+        "javascript": {}
+      },
+      "path": "agent-file-tools",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "app-shell-kit",
+      "category": "ui-kit",
+      "part": "public",
+      "description": "App shell pieces: layout with header and sidebar slots, profile menu, settings dialog, shell state store",
+      "files": 7,
+      "tests": 0,
+      "stubs": [
+        "UsagePanel",
+        "useAuthUser",
+        "useSignOut"
+      ],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "lucide-react": "^0.370.0",
+          "next": "16.3.8",
+          "react": "18.2.0",
+          "zustand": "^4.5.2"
+        }
+      },
+      "path": "app-shell-kit",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "body-size-limit",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "ASGI middleware that refuses oversize request bodies with 413",
+      "files": 1,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {}
+      },
+      "path": "body-size-limit",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "command-palette",
+      "category": "ui-kit",
+      "part": "public",
+      "description": "Keyboard command palette (Ctrl+K) with filter and focus cycling",
+      "files": 2,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "next": "16.3.8",
+          "react": "18.2.0"
+        }
+      },
+      "path": "command-palette",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "diff-view",
+      "category": "frontend-lib",
+      "part": "public",
+      "description": "Side-by-side diff on the Monaco diff editor, theme aware",
+      "files": 2,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "@monaco-editor/react": "^4.7.0",
+          "next": "16.3.8",
+          "react": "18.2.0"
+        }
+      },
+      "path": "diff-view",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "file-tree",
+      "category": "frontend-lib",
+      "part": "public",
+      "description": "File tree: path list to nested tree, persisted open state, react-arborist wrapper",
+      "files": 3,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "react": "18.2.0",
+          "react-arborist": "^3.16.0"
+        }
+      },
+      "path": "file-tree",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "hero-carousel",
+      "category": "landing",
+      "part": "public",
+      "description": "Timed slide carousel with per-block reveal and reduced-motion fallback",
+      "files": 4,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "lucide-react": "^0.370.0",
+          "react": "18.2.0"
+        }
+      },
+      "path": "hero-carousel",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "hitl-approval-kit-v2",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Approval request lifecycle with status-based resolution, TTL expiry and wait-and-resume",
+      "files": 6,
+      "tests": 1,
+      "stubs": [
+        "ApprovalRequest",
+        "AsyncSessionLocal"
+      ],
+      "dependencies": {
+        "python": [
+          "sqlalchemy[asyncio]>=2.0"
+        ],
+        "javascript": {
+          "react": "18.2.0"
+        }
+      },
+      "path": "hitl-approval-kit-v2",
+      "status": "variant",
+      "variant_of": "approval-gate",
+      "set": 2
+    },
+    {
+      "name": "late-import-check",
+      "category": "testing-kit",
+      "part": "public",
+      "description": "Find function-local imports that should be module level",
+      "files": 0,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {}
+      },
+      "path": "late-import-check",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "llm-http-wrapper-v2",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "OpenRouter-style completion over httpx with retries, schema fallback and truncation retry",
+      "files": 2,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [
+          "httpx>=0.27"
+        ],
+        "javascript": {}
+      },
+      "path": "llm-http-wrapper-v2",
+      "status": "variant",
+      "variant_of": "llm-provider-adapter",
+      "set": 2
+    },
+    {
+      "name": "llm-spend-meter-v2",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Exact LLM cost, model price cache and spend caps",
+      "files": 5,
+      "tests": 1,
+      "stubs": [
+        "get_settings"
+      ],
+      "dependencies": {
+        "python": [
+          "httpx>=0.27"
+        ],
+        "javascript": {}
+      },
+      "path": "llm-spend-meter-v2",
+      "status": "variant",
+      "variant_of": "llm-provider-adapter",
+      "set": 2
+    },
+    {
+      "name": "node-test-alias-loader",
+      "category": "testing-kit",
+      "part": "public",
+      "description": "Node test loader that resolves an @/ path alias to src/",
+      "files": 0,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {}
+      },
+      "path": "node-test-alias-loader",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "object-storage-wrapper",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Thin server-side Supabase Storage client",
+      "files": 2,
+      "tests": 0,
+      "stubs": [
+        "get_settings"
+      ],
+      "dependencies": {
+        "python": [
+          "supabase>=2.10"
+        ],
+        "javascript": {}
+      },
+      "path": "object-storage-wrapper",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "owner-only-404",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "FastAPI dependency: only the owner sees a resource, everyone else gets 404",
+      "files": 2,
+      "tests": 0,
+      "stubs": [
+        "Item",
+        "get_current_user",
+        "get_db"
+      ],
+      "dependencies": {
+        "python": [
+          "fastapi>=0.115",
+          "sqlalchemy[asyncio]>=2.0"
+        ],
+        "javascript": {}
+      },
+      "path": "owner-only-404",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "password-strength",
+      "category": "frontend-lib",
+      "part": "public",
+      "description": "Password analysis, strength meter and field",
+      "files": 3,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "lucide-react": "^0.370.0",
+          "react": "18.2.0"
+        }
+      },
+      "path": "password-strength",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "pdf-report-engine",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Deterministic PDF report layer on reportlab: embedded fonts, header/footer, page numbers, tables, badges",
+      "files": 4,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [
+          "reportlab>=4.0.0"
+        ],
+        "javascript": {}
+      },
+      "path": "pdf-report-engine",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "safe-markdown",
+      "category": "frontend-lib",
+      "part": "public",
+      "description": "Small markdown parser and renderer that never emits raw HTML",
+      "files": 2,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "react": "18.2.0"
+        }
+      },
+      "path": "safe-markdown",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "safe-paths",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Validation and safe join/write for untrusted relative paths",
+      "files": 1,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {}
+      },
+      "path": "safe-paths",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "scrub-safe-error-v2",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Secret/credential redaction for logs and stored payloads",
+      "files": 2,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {}
+      },
+      "path": "scrub-safe-error-v2",
+      "status": "variant",
+      "variant_of": "ssrf-and-input-hygiene",
+      "set": 2
+    },
+    {
+      "name": "soft-step",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Best-effort steps that fail loudly on programming errors",
+      "files": 2,
+      "tests": 1,
+      "stubs": [
+        "get_settings"
+      ],
+      "dependencies": {
+        "python": [
+          "httpx>=0.27",
+          "sqlalchemy[asyncio]>=2.0"
+        ],
+        "javascript": {}
+      },
+      "path": "soft-step",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "sse-broadcaster",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Per-key server-sent-event fan-out with bounded queues and keepalive",
+      "files": 2,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [
+          "sse-starlette>=2.1"
+        ],
+        "javascript": {}
+      },
+      "path": "sse-broadcaster",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "status-pill",
+      "category": "ui-kit",
+      "part": "public",
+      "description": "Generic status chip: colour + icon + word, with an example status map",
+      "files": 2,
+      "tests": 1,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "lucide-react": "^0.370.0"
+        }
+      },
+      "path": "status-pill",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "ui-primitives",
+      "category": "ui-kit",
+      "part": "public",
+      "description": "Accessible UI primitives: Button, Dialog + focus trap, Sheet, Menu, Tabs, Table, TagInput, Toast and more",
+      "files": 23,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "lucide-react": "^0.370.0",
+          "react": "18.2.0",
+          "react-hot-toast": "^2.4.1"
+        }
+      },
+      "path": "ui-primitives",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "ui-tokens-theme",
+      "category": "ui-kit",
+      "part": "public",
+      "description": "Dark/light design tokens, theme preference and a WCAG contrast check",
+      "files": 4,
+      "tests": 4,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "react": "18.2.0"
+        }
+      },
+      "path": "ui-tokens-theme",
+      "status": "new",
+      "set": 2
+    },
+    {
+      "name": "untrusted-text-fence-v2",
+      "category": "backend-helpers",
+      "part": "public",
+      "description": "Fence untrusted text inside a prompt as labelled data",
+      "files": 1,
+      "tests": 0,
+      "stubs": [],
+      "dependencies": {
+        "python": [],
+        "javascript": {}
+      },
+      "path": "untrusted-text-fence-v2",
+      "status": "variant",
+      "variant_of": "llm-provider-adapter",
+      "set": 2
+    },
+    {
+      "name": "visual-editor-wrapper",
+      "category": "frontend-lib",
+      "part": "public",
+      "description": "GrapesJS wrapper: canvas, panels, block definitions, element property hook",
+      "files": 12,
+      "tests": 1,
+      "stubs": [
+        "DesignToken",
+        "PageDesign"
+      ],
+      "dependencies": {
+        "python": [],
+        "javascript": {
+          "clsx": "^2.1.1",
+          "grapesjs": "^0.21.10",
+          "grapesjs-blocks-basic": "^1.0.2",
+          "grapesjs-plugin-forms": "^2.0.6",
+          "grapesjs-preset-webpage": "^1.0.3",
+          "lucide-react": "^0.370.0",
+          "react": "18.2.0"
+        }
+      },
+      "path": "visual-editor-wrapper",
+      "status": "new",
+      "set": 2
+    }
+  ],
+  "covered": [
+    {
+      "module": "jwt-jwks-verify",
+      "covered_by": "auth-supabase-stepup",
+      "note": "the existing adapter is a superset"
+    }
+  ]
+}

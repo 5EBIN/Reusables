@@ -1,0 +1,8 @@
+{
+  "sync-design": "node scripts/sync-design.mjs",
+  "gen-pages": "node scripts/mockup-to-tsx.mjs",
+  "build": "npm run sync-design && npm run gen-pages && next build",
+  "typecheck": "tsc --noEmit",
+  "test": "vitest run",
+  "verify": "npm run sync-design && npm run gen-pages && npm run typecheck && npm test"
+}

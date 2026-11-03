@@ -1,0 +1,41 @@
+[importlinter]
+root_package = app
+include_external_packages = True
+[importlinter:contract:core-pure]
+name = core must not import vendors, adapters, app, db
+type = forbidden
+source_modules = app.core
+forbidden_modules = app.adapters
+    app.app
+    app.db
+    asyncpg
+    httpx
+    stripe
+    supabase
+    boto3
+    anthropic
+# the composition root (container) reaches vendors only through adapters, so indirect imports are allowed here
+[importlinter:contract:app-no-vendors]
+name = app must not import vendor SDKs
+type = forbidden
+source_modules = app.app
+forbidden_modules = stripe
+    supabase
+    boto3
+    anthropic
+allow_indirect_imports = True
+
+[importlinter:contract:executors-only-via-run-approved]
+name = only run_approved may import executors
+type = forbidden
+source_modules = app.app.routers
+    app.app.deps
+    app.app.main
+    app.app.worker
+    app.app.audience
+    app.app.analytics
+    app.core
+    app.adapters
+    app.db
+forbidden_modules = app.app.executors
+allow_indirect_imports = True

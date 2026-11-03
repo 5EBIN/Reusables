@@ -1,0 +1,40 @@
+[project]
+name = "app"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.142,<0.143", "numpy>=2.5,<3", "pydantic>=2.13,<3", "asyncpg>=0.32,<0.33", "httpx>=0.28,<0.29", "xlsxwriter>=3.2,<4",
+  "pyreadstat>=1.3,<2", "reportlab>=5.0,<6", "qrcode>=8.2,<9", "cryptography>=50.0,<51", "arabic-reshaper>=3.0,<4", "python-bidi>=0.6,<0.7",
+  "pillow>=13.0,<14", "defusedxml>=0.7,<0.8", "dnspython>=2.7,<3",
+  "PyJWT>=2.15,<3", "pandas>=3.0,<4",       # PyJWT: auth tokens; pandas: SPSS .sav export (pyreadstat writes from a DataFrame)
+  "scipy>=1.18,<2", "statsmodels>=0.15,<0.16", "scikit-learn>=1.9,<2", "semopy>=2.3.11,<2.4",   # app.stats: reliability, drivers, change, invariance, multilevel (BSD; semopy MIT)
+  "alembic>=1.20,<2", "psycopg[binary]>=3.3,<4", "uvicorn>=0.53,<0.54",     # runtime: /readyz checks the alembic head; migrations and the server run from the same image
+]
+[project.optional-dependencies]
+llm = ["anthropic"]
+test = ["pytest", "pytest-asyncio", "pytest-repeat", "hypothesis", "sqlglot", "respx", "openpyxl", "pypdf>=6.21.2", "ruff", "import-linter"]
+semantic = ["sentence-transformers"]   # EMBEDDINGS_PROVIDER=local_en; weights download on first use
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.ruff]
+extend-exclude = ["tests/load", "tests/fixtures"]
+line-length = 110
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+addopts = "--strict-markers"
+markers = [
+  "security: never xfail",
+  "integration: needs the database (everything under tests/integration)",
+  "regression: regression checks (everything under tests/regression)",
+  "golden: scores a classifier on a labelled set",
+  "e2e: end-to-end flow across services",
+  "live: calls a real external service; never runs unless explicitly selected and keyed",
+]
+[tool.ruff.lint]
+ignore = ["ISC004","DTZ","RUF059","UP035","FURB167","BLE001","PLR","B008","SIM117","I001","RUF100","SIM105","B904","E501","E701","E702","RUF001"]
